@@ -5,6 +5,7 @@ working.
 # Usage
 
 ```javascript
+const nowOrAgain = require('now-or-again');
 let count = 1;
 
 function update(n, cb) {
