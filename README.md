@@ -1,3 +1,5 @@
+NOTE: Hold off on using for now, fixing some things.
+
 Run a function now, or if its already running (callback hasn't returned) then run it again when it finishes.
 Will only call the function one additional time even if you call nowOrAgain several times while the function is
 working.
