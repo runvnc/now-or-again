@@ -1,5 +1,7 @@
 'use strict';
 
+import Promise from 'bluebird';
+
 let running = {}, runAgain = {},
     args = {};
 let md5 = require('md5');

@@ -9,6 +9,12 @@ exports.checkAgainPromise = checkAgainPromise;
 exports.nowOrAgainPromise = nowOrAgainPromise;
 exports.isRunning = isRunning;
 
+var _bluebird = require('bluebird');
+
+var _bluebird2 = _interopRequireDefault(_bluebird);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 var running = {},
@@ -66,7 +72,7 @@ function nowOrAgainPromise(key, prom) {
     params[_key2 - 2] = arguments[_key2];
   }
 
-  return new Promise(function (resolve) {
+  return new _bluebird2.default(function (resolve) {
     var funcID = key + md5(prom);
 
     if (running[funcID]) {
@@ -115,7 +121,7 @@ function test() {
 }
 
 function updatePromise(n) {
-  return new Promise(function (res) {
+  return new _bluebird2.default(function (res) {
     console.log('updating', n);
     setTimeout(function () {
       //console.log('resolving in updatePromise');
@@ -132,7 +138,7 @@ function testPromise() {
   }).then(function () {
     return nowOrAgainPromise(key, updatePromise, 4);
   }).then(function () {
-    return new Promise(function (res1) {
+    return new _bluebird2.default(function (res1) {
       setTimeout(function () {
         nowOrAgainPromise(key, updatePromise, 5).then(res1);
       }, 1500);
